@@ -40,6 +40,16 @@ test('student details are escaped in the records table', function () {
         ->assertDontSee('<script>alert(1)</script>', escape: false);
 });
 
+test('the page generates HTTPS URLs behind a trusted proxy', function () {
+    $this->get('/', [
+        'X-Forwarded-Proto' => 'https',
+        'X-Forwarded-Host' => 'bearebaja.onrender.com',
+    ])
+        ->assertOk()
+        ->assertSee('action="https://bearebaja.onrender.com/students"', escape: false)
+        ->assertSee('href="https://bearebaja.onrender.com/build/assets/app-', escape: false);
+});
+
 test('a valid student can be created', function () {
     $response = $this->post('/students', studentAttributes());
 
