@@ -8,11 +8,30 @@
     </head>
     <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
         <main class="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8">
-            <header class="flex flex-col gap-2">
-                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600">Records</p>
-                <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Student Management</h1>
-                <p class="text-slate-600">Manage your student records.</p>
-            </header>
+            <section aria-labelledby="profile-name" class="overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950 via-slate-900 to-violet-950 px-6 py-8 text-white shadow-xl sm:px-10 sm:py-10">
+                <div class="flex flex-col-reverse items-center gap-8 text-center sm:flex-row sm:justify-between sm:gap-10 sm:text-left">
+                    <div class="flex max-w-2xl flex-col items-center gap-5 sm:items-start">
+                        <div class="flex flex-col gap-2">
+                            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200">Featured Work · Laravel CRUD Project</p>
+                            <h1 id="profile-name" class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Jahrly Grace Y. Rebaja</h1>
+                        </div>
+                        <p class="max-w-xl text-base leading-7 text-slate-200 sm:text-lg">
+                            The creator behind this Student Management application, built to make student records simple to manage.
+                        </p>
+                        <a href="#student-records" class="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-indigo-950 transition hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-950">
+                            Explore the project
+                            <span aria-hidden="true">↓</span>
+                        </a>
+                    </div>
+                    <img
+                        src="{{ asset('images/jahrly-grace-rebaja.png') }}"
+                        alt="Portrait of Jahrly Grace Y. Rebaja"
+                        class="h-40 w-40 shrink-0 rounded-full border-4 border-white/90 object-cover shadow-2xl ring-4 ring-white/15 sm:h-48 sm:w-48"
+                        width="192"
+                        height="192"
+                    >
+                </div>
+            </section>
 
             @if (session('success'))
                 <div role="status" class="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
@@ -99,7 +118,7 @@
                 </form>
             </section>
 
-            <section aria-labelledby="student-list-heading" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <section id="student-records" aria-labelledby="student-list-heading" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                 <div class="flex flex-col gap-1 border-b border-slate-200 px-5 py-5 sm:px-7">
                     <h2 id="student-list-heading" class="text-xl font-semibold">Student Records</h2>
                     <p class="text-sm text-slate-500">{{ $students->count() }} {{ \Illuminate\Support\Str::plural('record', $students->count()) }}</p>

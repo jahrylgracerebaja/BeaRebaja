@@ -20,6 +20,10 @@ test('the home page shows an empty state and student records', function () {
     $response = $this->get('/');
 
     $response->assertOk()->assertSee('No student records yet');
+    $response->assertSee('Jahrly Grace Y. Rebaja')
+        ->assertSee('Featured Work')
+        ->assertSee('images/jahrly-grace-rebaja.png')
+        ->assertSee('Explore the project');
 
     Student::create(studentAttributes());
 
