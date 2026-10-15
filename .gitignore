@@ -20,6 +20,7 @@
 /public/storage
 /database/*.sqlite
 /.mcp.json
+/.npmrc
 /bootstrap/cache/*.php
 /storage/*.key
 /storage/pail

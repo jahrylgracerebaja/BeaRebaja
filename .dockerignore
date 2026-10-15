@@ -2,9 +2,11 @@
 .env
 .env.*
 .mcp.json
+.npmrc
 .claude
 AGENTS.md
 CLAUDE.md
+boost.json
 auth.json
 node_modules
 vendor
